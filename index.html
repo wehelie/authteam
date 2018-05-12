@@ -125,6 +125,14 @@ var helper = (function() {
         'userId': 'me'
       }).then(function(res) {
         var profile = res.result;
+
+        $.ajax({
+    type: 'POST',
+    url: 'data.php',
+    data: {json: JSON.stringify(profile)},
+    dataType: 'json'
+});
+
         console.log(profile);
         $('#profile').empty();
         $('#profile').append(
